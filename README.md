@@ -29,4 +29,4 @@ docs/
 - Git & GitHub
 
 ## Status
-Concluído
+em andamento
