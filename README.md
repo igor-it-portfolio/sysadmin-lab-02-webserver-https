@@ -1,5 +1,5 @@
 🌐 Projeto: Infraestrutura Web Segura na AWS (Semana 1)
-Este repositório documenta a implementação de um servidor web de alta segurança, realizado como projeto final da primeira semana de estudos em administração de sistemas e cloud computing.
+Este repositório documenta a implementação de um servidor web de alta segurança, realizado como projeto final de uma semana de estudos em administração de sistemas e cloud computing.
 
 🚀 Resumo do Projeto
 O objetivo foi configurar uma instância EC2 (Ubuntu) na AWS, tornando-a um servidor web capaz de servir conteúdo de forma segura via HTTPS, com renovação automática de certificados e proteção contra acessos não autorizados.
