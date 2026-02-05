@@ -1,0 +1,3 @@
+#!/bin/bash
+# Comando para atualizar o IP do servidor no DuckDNS
+curl -k "https://www.duckdns.org/update?domains=meusiteinfra&token=(meutoken)&ip="
