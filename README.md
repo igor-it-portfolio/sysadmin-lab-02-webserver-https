@@ -1,36 +1,66 @@
-🌐 Projeto: Infraestrutura Web Segura na AWS (Semana 1)
-Este repositório documenta a implementação de um servidor web de alta segurança, realizado como projeto final de uma semana de estudos em administração de sistemas e cloud computing.
+# 🌐 Infraestrutura Web Segura na AWS
+Projeto prático de **Administração de Sistemas + Cloud Computing**, focado na criação de um servidor web seguro, exposto na internet com HTTPS, boas práticas de hardening e monitoramento.
 
-🚀 Resumo do Projeto
-O objetivo foi configurar uma instância EC2 (Ubuntu) na AWS, tornando-a um servidor web capaz de servir conteúdo de forma segura via HTTPS, com renovação automática de certificados e proteção contra acessos não autorizados.
-  README.md
+---
 
-Dia,Foco Técnico,Atividades Principais
-1,Redes & Acesso,"Configuração de IP, DNS, Gateways e regras de Security Groups (Firewall)."
-2,Protocolos,Estudo aprofundado de TCP/IP e do funcionamento do handshake HTTP/HTTPS.
-3,Servidor Web,Instalação e otimização do Nginx.
-4,Host Virtual,Configuração de Virtual Hosts para servir múltiplos domínios.
-5,Diagnóstico,"Troubleshooting de rede utilizando ss, netstat e curl."
-6,Criptografia,Implementação de SSL/TLS via Let's Encrypt e Certbot.
-7,Projeto Final,"Consolidação da infraestrutura, Hardening de SSH e análise de logs."
+## 🚀 Objetivo
+Provisionar uma instância **EC2 Ubuntu** na AWS e transformá-la em um **servidor web seguro e produtivo**, aplicando:
 
+- Segurança de acesso (SSH Hardening)
+- Firewall (Security Groups)
+- HTTPS com Let's Encrypt
+- Redirecionamento forçado HTTP → HTTPS
+- Monitoramento de logs
+- DNS dinâmico
+- Boas práticas de Linux + Nginx
 
-🛡️ Diferenciais de Segurança Implementados
-SSH Hardening: Desativação de autenticação por senha, permitindo apenas acesso via chaves criptográficas (.pem).
+---
 
-Gestão de Logs: Monitoramento em tempo real do access.log para identificação de bots e tentativas de exploit.
+## 🏗️ Arquitetura
 
-Forçamento de HTTPS: Redirecionamento automático (301) de todo tráfego inseguro (porta 80) para a porta segura (443).
+AWS EC2 (Ubuntu)
+│
+├── Nginx (Web Server)
+├── Certbot (SSL/TLS)
+├── OpenSSH (Acesso seguro)
+├── DuckDNS (DNS dinâmico)
+└── Security Groups (Firewall AWS)
 
-DNS Dinâmico: Integração com DuckDNS para resolução de nome em IPs dinâmicos.
+## 🛡️ Segurança Implementada
+
+### 🔐 SSH Hardening
+- Login por senha desativado
+- Acesso apenas via chave `.pem`
+- Root login bloqueado
+
+### 🔥 Firewall (Security Groups)
+- 22 → SSH restrito
+- 80 → HTTP
+- 443 → HTTPS
+
+### 🔒 HTTPS obrigatório
+- Certificado SSL automático (Let's Encrypt)
+- Redirecionamento 301 HTTP → HTTPS
+- Renovação automática via cron
+
+### 📊 Monitoramento
+- Análise em tempo real:
+```bash
+tail -f /var/log/nginx/access.log
 
 🛠️ Tecnologias Utilizadas
-Cloud: AWS (EC2)
+Categoria	Stack
+Cloud	AWS EC2
+Sistema	Ubuntu Server 24.04 LTS
+Web Server	Nginx
+Segurança	OpenSSH, Certbot
+DNS	DuckDNS
+CLI	Linux Terminal, PowerShell
 
-OS: Ubuntu Server 24.04 LTS
+📈 Resultados
 
-Web Server: Nginx
-
-Security: Certbot, OpenSSH
-
-Tools: Linux Terminal, PowerShell, DuckDNS
+✅ Site publicado com HTTPS
+✅ Certificado renovando automaticamente
+✅ Servidor protegido contra brute force
+✅ Logs monitorados
+✅ Infraestrutura pronta para produção
